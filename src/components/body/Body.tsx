@@ -1,7 +1,14 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import Card from '../common/Card';
+import CircularIcon from '../common/CircularIcon';
+import Column from '../common/Column';
+import RichText from '../common/RichText';
+import RoundedButton from '../common/RoundedButton';
 import Row from '../common/Row';
 import SVG from '../common/SVG';
+import FeaturedCard from './FeaturedCard';
+import PackageDetailsCard from './PackageDetailsCard';
 
 const Body: React.FC = () => {
   return (
@@ -27,50 +34,47 @@ const Body: React.FC = () => {
       <BodyBottomContainer>
         <AlignVerticle>
           <Row spacing="0 1rem">
-            <Card>
-              <Row spacing="0 .5rem">
-                <SVG src="/assets/images/form.png" />
-                <Column>
-                  <Row justifyContent="space-between">
-                    <RichText bold>Fill up the form</RichText>
-                    <SVG src="/assets/images/arrowRightBlack.png" />
-                  </Row>
-                  <RichText color="#858585" spacing=".4rem 0">
-                    Fill in your basic information to join the Gym Club.
-                  </RichText>
-                </Column>
-              </Row>
-            </Card>
-            <Card>
-              <Row spacing="0 .5rem">
-                <SVG src="/assets/images/find.png" />
-                <Column>
-                  <Row justifyContent="space-between">
-                    <RichText bold>Fill up the form</RichText>
-                    <SVG src="/assets/images/arrowRightBlack.png" />
-                  </Row>
-                  <RichText color="#858585" spacing=".4rem 0">
-                    Fill in your basic information to join the Gym Club.
-                  </RichText>
-                </Column>
-              </Row>
-            </Card>
-            <Card>
-              <Row spacing="0 .5rem">
-                <SVG src="/assets/images/progress.png" />
-                <Column>
-                  <Row justifyContent="space-between">
-                    <RichText bold>Fill up the form</RichText>
-                    <SVG src="/assets/images/arrowRightBlack.png" />
-                  </Row>
-                  <RichText color="#858585" spacing=".4rem 0">
-                    Fill in your basic information to join the Gym Club.
-                  </RichText>
-                </Column>
-              </Row>
-            </Card>
+            <FeaturedCard
+              title="Fill up the form"
+              subTitle="Fill in your basic information to join the Gym Club."
+              icon="form.png"
+            />
+
+            <FeaturedCard
+              icon="find.png"
+              title="Find your perfect gym"
+              subTitle="Easily find your perfect gym club and join the club instantly."
+            />
+            <FeaturedCard
+              icon="progress.png"
+              title="Track your progress"
+              subTitle="Analyze and plan for your tasks and progress."
+            />
           </Row>
         </AlignVerticle>
+        <Column>
+          <RichText bold size="1.2rem" spacing="1rem 0" color="#555555">
+            Recommended Tour Packages
+          </RichText>
+          <RichText color="#858585">
+            These recommendations are based on your profile information
+          </RichText>
+        </Column>
+        <PackageDetailsCard
+          title="Pilates"
+          subTitle="Developed first by Joseph Pilates, after whom the technique is name…"
+          price="$ 4,220/6 mo."
+        />
+        <PackageDetailsCard
+          title="Yoga & Meditation"
+          subTitle="Mantra has always believed in a Mind & Body approach which means…"
+          price="$ 4,220/6 mo."
+        />
+        <PackageDetailsCard
+          title="Kettlebell"
+          subTitle="Kettlebell, the exercise routine involving a kettle shaped weight originat…"
+          price="$ 4,220/6 mo."
+        />
       </BodyBottomContainer>
     </BodyContainer>
   );
@@ -82,51 +86,9 @@ const AlignVerticle = styled.div({
   transform: 'translateY(-50%)',
 });
 
-const Column = styled.div((props: { spacing?: string }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  div: {
-    margin: props.spacing || '0',
-  },
-}));
-const Card = styled.div((props) => ({
-  backgroundColor: 'white',
-  padding: '1rem',
-  boxShadow: '0px 5px 10px #A9A9A933',
-  border: '1px solid #ECECEC',
-  borderRadius: '4px',
-}));
-
 const BodyContainer = styled.div({
   overflowY: 'scroll',
   backgroundColor: 'white',
-});
-
-const RichText = styled.div(
-  (props: {
-    color?: string;
-    bold?: boolean;
-    size?: string;
-    spacing?: string;
-  }) => ({
-    color: props.color,
-    fontSize: props.size,
-    fontWeight: props.bold ? 'bold' : 'inherit',
-    padding: props.spacing,
-  })
-);
-
-const RoundedButton = styled.button({
-  backgroundColor: '#262758',
-  outline: 'none',
-  color: 'white',
-  border: 'none',
-  textTransform: 'uppercase',
-  fontWeight: 'bolder',
-  padding: '0 2rem',
-  borderRadius: '25px',
-  height: '3rem',
 });
 
 const BodyTopContainer = styled.div({
