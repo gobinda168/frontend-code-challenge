@@ -72,11 +72,18 @@ const Body: React.FC = () => {
           subTitle="Kettlebell, the exercise routine involving a kettle shaped weight originat…"
           price="$ 4,220/6 mo."
         />
-        <Heading
-          title="Refer and Earn"
-          subTitle="Add your refferel and earn <b>5$</b> after they sign up."
-        />
-        <RichText spacing="2rem 0 1rem 0" color="#555555">
+        <Column spacing="1rem 0 0 0">
+          <RichText size="1.2rem" bold color="#555555">
+            Refer and Earn
+          </RichText>
+          <RichText color="#858585">
+            Add your refferel and earn&nbsp;
+            <b>5$</b>
+            &nbsp;after they sign up.
+          </RichText>
+        </Column>
+
+        <RichText spacing="2rem 0 .5rem 0" color="#555555">
           Basic Information
         </RichText>
         <Row justifyContent="space-between">
@@ -124,7 +131,7 @@ const Input = styled.input({
   border: '1px solid #3C498A',
   borderRadius: '4px',
   opacity: '0.42',
-  margin: '1rem',
+  margin: '.5rem 1rem',
   paddingLeft: '.7rem',
   marginLeft: '0',
   '::placeholder': {
