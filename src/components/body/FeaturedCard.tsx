@@ -1,4 +1,5 @@
 import React from 'react';
+import AnimatedAsset from '../common/AnimatedAsset';
 import Card from '../common/Card';
 import Column from '../common/Column';
 import RichText from '../common/RichText';
@@ -12,13 +13,13 @@ interface Props {
 }
 const FeaturedCard: React.FC<Props> = ({ title, subTitle, icon }: Props) => {
   return (
-    <Card>
+    <Card hover>
       <Row>
-        <SVG src={`/assets/images/${icon}`} />
+        <AnimatedAsset src={`/assets/images/${icon}`} />
         <Column>
           <Row justifyContent="space-between">
             <RichText bold>{title}</RichText>
-            <SVG src="/assets/images/arrowRightBlack.png" />
+            <SVG src="/assets/images/arrowRightBlack.png" cursor="pointer" />
           </Row>
           <RichText color="#858585" spacing=".4rem 0">
             {subTitle}

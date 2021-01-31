@@ -18,7 +18,7 @@ const PackageDetailsCard: React.FC<Props> = ({
   price,
 }: Props) => (
   <Column margin="1rem 0">
-    <Card shadow="0px 5px 10px #A9A9A91A">
+    <Card shadow="0px 5px 10px #A9A9A91A" hover={false}>
       <Row justifyContent="space-between">
         <Row>
           <CircularIcon color="#A9A9A966" padding=".5rem">

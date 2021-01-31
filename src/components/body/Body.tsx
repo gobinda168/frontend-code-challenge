@@ -8,6 +8,7 @@ import RoundedButton from '../common/RoundedButton';
 import Row from '../common/Row';
 import SVG from '../common/SVG';
 import FeaturedCard from './FeaturedCard';
+import Heading from './Heading';
 import PackageDetailsCard from './PackageDetailsCard';
 
 const Body: React.FC = () => {
@@ -52,14 +53,10 @@ const Body: React.FC = () => {
             />
           </Row>
         </AlignVerticle>
-        <Column>
-          <RichText bold size="1.2rem" spacing="1rem 0" color="#555555">
-            Recommended Tour Packages
-          </RichText>
-          <RichText color="#858585">
-            These recommendations are based on your profile information
-          </RichText>
-        </Column>
+        <Heading
+          title="Recommended Tour Packages"
+          subTitle="These recommendations are based on your profile information"
+        />
         <PackageDetailsCard
           title="Pilates"
           subTitle="Developed first by Joseph Pilates, after whom the technique is name…"
@@ -75,12 +72,66 @@ const Body: React.FC = () => {
           subTitle="Kettlebell, the exercise routine involving a kettle shaped weight originat…"
           price="$ 4,220/6 mo."
         />
+        <Heading
+          title="Refer and Earn"
+          subTitle="Add your refferel and earn <b>5$</b> after they sign up."
+        />
+        <RichText spacing="2rem 0 1rem 0" color="#555555">
+          Basic Information
+        </RichText>
+        <Row justifyContent="space-between">
+          <Column>
+            <Row>
+              <Input type="text" placeholder="Name" />
+              <Input type="text" placeholder="Email" />
+            </Row>
+            <Row>
+              <Input type="text" placeholder="Phone Number" />
+              <Input type="text" placeholder="Gender" />
+            </Row>
+            <Row>
+              <Input type="text" placeholder="Address" />
+              <Input type="text" placeholder="Apt/Suite/Other" />
+            </Row>
+            <Divider />
+            <Row justifyContent="space-between" spacing="2rem 0">
+              <RichText color="#B7B7B7">
+                Lorem Ipsum dolor sit amet & Lorem Ipsum
+              </RichText>
+              <RoundedButton background="#ECF4F9" color="#262758">
+                REFER
+              </RoundedButton>
+            </Row>
+          </Column>
+          <SVG src="/assets/images/illustration.png" />
+        </Row>
       </BodyBottomContainer>
     </BodyContainer>
   );
 };
 
 export default Body;
+
+const Divider = styled.div({
+  borderBottom: '1px solid #9F9F9F',
+  paddingTop: '1rem',
+  width: '43rem',
+});
+
+const Input = styled.input({
+  height: '2.5rem',
+  width: '20rem',
+  border: '1px solid #3C498A',
+  borderRadius: '4px',
+  opacity: '0.42',
+  margin: '1rem',
+  paddingLeft: '.7rem',
+  marginLeft: '0',
+  '::placeholder': {
+    opacity: '1',
+    color: 'black',
+  },
+});
 
 const AlignVerticle = styled.div({
   transform: 'translateY(-50%)',
@@ -89,6 +140,7 @@ const AlignVerticle = styled.div({
 const BodyContainer = styled.div({
   overflowY: 'scroll',
   backgroundColor: 'white',
+  paddingBottom: '4rem',
 });
 
 const BodyTopContainer = styled.div({
