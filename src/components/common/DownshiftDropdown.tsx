@@ -73,7 +73,7 @@ const Dropdown = styled.div({
   height: '2.5rem',
   width: '20rem',
   borderRadius: '4px',
-  opacity: '0.42',
+  // opacity: '0.42',
   margin: '.5rem 1rem',
   background: 'white',
   position: 'relative',
@@ -89,11 +89,12 @@ const MenuContainer = styled.div({
 const Input = styled.input({
   height: '2.4rem',
   width: '20rem',
-  border: '1px solid #3C498A',
+  border: '1px solid rgba(60,73,138,0.42)',
   paddingLeft: '.7rem',
   marginLeft: '0',
   '::focus': {
     outline: 'none',
+    border: '1px solid rgba(60,73,138,0.92)',
   },
   '::placeholder': {
     opacity: '1',

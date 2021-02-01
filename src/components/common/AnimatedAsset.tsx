@@ -4,7 +4,7 @@ const AnimatedAsset = styled.img(
   (props: { cursor?: string; scale?: string }) => ({
     cursor: props.cursor || 'auto',
     transition: 'all 200ms linear',
-    transform: props.scale ? 'scale(1.2)' : 'scale(1)',
+    transform: props.scale,
   })
 );
 

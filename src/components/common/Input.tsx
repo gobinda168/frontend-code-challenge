@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import styled from '@emotion/styled';
 import React, { useState } from 'react';
+import Row from './Row';
+import SVG from './SVG';
 
 interface Props {
   fieldLabel: string;
@@ -15,6 +17,7 @@ const Input: React.FC<Props> = ({
   name,
 }: Props) => {
   const [fieldStatus, setFieldStatus] = useState(false);
+  // eslint-disable-next-line no-console
   console.log(errors[name]); // watch input value by passing the name of it
   const toggleFieldStatus = (e: React.FocusEvent<HTMLInputElement>) => {
     if (e.target.value) return;
@@ -32,12 +35,24 @@ const Input: React.FC<Props> = ({
           ref={register({ required: true })}
         />
       </FlatInput>
-      <div className="error">{errors[name]?.message}</div>
+      <FieldError>
+        <Row spacing="0 .41rem">
+          {errors[name] && (
+            <SVG src="/assets/images/warning.png" width="10px" height="10px" />
+          )}
+          {errors[name]?.message ||
+            (errors[name] && `${fieldLabel} is required`)}
+        </Row>
+      </FieldError>
     </div>
   );
 };
 
 export default Input;
+
+const FieldError = styled.div({
+  color: 'red',
+});
 
 const FlatInput = styled.div((props: { active: boolean }) => ({
   height: '2.5rem',
