@@ -43,7 +43,7 @@ const Form: React.FC = () => {
       </Row>
       <Row spacing=".1rem .5rem .4rem 0">
         <Input
-          fieldLabel="Email"
+          fieldLabel="Phone"
           register={register}
           errors={errors}
           name="phone"
