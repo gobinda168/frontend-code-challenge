@@ -67,6 +67,10 @@ const FlatInput = styled.div((props: { active: boolean }) => ({
     position: 'absolute',
     padding: '0 .72rem',
     top: props.active ? '0' : '35%',
+    '@media(max-width:500px)': {
+      top: props.active ? '0' : '20%',
+      fontSize: '.71rem',
+    },
   },
   '.input': {
     height: '100%',
@@ -81,5 +85,8 @@ const FlatInput = styled.div((props: { active: boolean }) => ({
       outline: 'none',
       border: 'none',
     },
+  },
+  '@media(max-width:500px)': {
+    width: '85vw',
   },
 }));

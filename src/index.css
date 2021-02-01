@@ -12,11 +12,12 @@ body {
 
 }
 
-/* @media screen and (min-width: 600px) {
+ @media screen and (max-width: 500px) {
   body {
     font-size: 112.5%;
   }
 }
+/*
 @media screen and (min-width: 800px) {
   body {
     font-size: 125%;
