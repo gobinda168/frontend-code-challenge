@@ -73,10 +73,13 @@ const Dropdown = styled.div({
   height: '2.5rem',
   width: '20rem',
   borderRadius: '4px',
-  // opacity: '0.42',
   margin: '.5rem 1rem',
   background: 'white',
   position: 'relative',
+  '@media(max-width:500px)': {
+    width: '85vw',
+    margin: '0',
+  },
 });
 
 const MenuContainer = styled.div({
@@ -100,6 +103,10 @@ const Input = styled.input({
     opacity: '1',
     color: 'black',
   },
+  '@media(max-width:500px)': {
+    width: '85vw',
+    margin: '0',
+  },
 });
 const Button = styled.button({
   background: 'transparent',
@@ -120,8 +127,10 @@ const Menu = styled.ul({
   marginTop: '.41rem',
   padding: '0px',
   position: 'absolute',
-  // zIndex: 119,
   opacity: '1',
+  '@media(max-width:500px)': {
+    width: '85vw',
+  },
 });
 
 const Items = styled.li(
@@ -136,6 +145,9 @@ const Items = styled.li(
     opacity: '1',
     ':hover': {
       backgroundColor: '#ECECEC',
+    },
+    '@media(max-width:500px)': {
+      padding: '0',
     },
   })
 );

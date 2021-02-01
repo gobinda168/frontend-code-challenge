@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import React from 'react';
 import Card from '../common/Card';
 import Column from '../common/Column';
+import MobileRow from '../common/MobileRow';
 import RichText from '../common/RichText';
 import RoundedButton from '../common/RoundedButton';
 import Row from '../common/Row';
@@ -60,14 +61,14 @@ const Body: React.FC = () => {
     <BodyContainer>
       <BodyTopContainer>
         <Row justifyContent="space-between">
-          <Row>
+          <MobileRow spacing="1rem 0">
             <RichText color="#555555" size="1.5rem" bold>
               Hello&nbsp;
             </RichText>
             <RichText color="#3D3FA8" size="1.5rem" bold>
               Jimmy,
             </RichText>
-          </Row>
+          </MobileRow>
           <RoundedButton>Find a Gym Club</RoundedButton>
         </Row>
         <Row spacing="1rem 0">
