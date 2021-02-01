@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AnimatedAsset from '../common/AnimatedAsset';
 import Card from '../common/Card';
 import Column from '../common/Column';
@@ -12,10 +12,15 @@ interface Props {
   icon: string;
 }
 const FeaturedCard: React.FC<Props> = ({ title, subTitle, icon }: Props) => {
+  const [cardHover, setCardHover] = useState(false);
   return (
-    <Card hover>
+    <Card
+      hover
+      onMouseOver={() => setCardHover(true)}
+      onMouseLeave={() => setCardHover(false)}
+    >
       <Row>
-        <AnimatedAsset src={`/assets/images/${icon}`} />
+        <AnimatedAsset src={`/assets/images/${icon}.png`} scale={cardHover} />
         <Column>
           <Row justifyContent="space-between">
             <RichText bold>{title}</RichText>

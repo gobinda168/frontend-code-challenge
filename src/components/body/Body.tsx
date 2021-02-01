@@ -39,16 +39,16 @@ const Body: React.FC = () => {
             <FeaturedCard
               title="Fill up the form"
               subTitle="Fill in your basic information to join the Gym Club."
-              icon="form.png"
+              icon="form"
             />
 
             <FeaturedCard
-              icon="find.png"
+              icon="find"
               title="Find your perfect gym"
               subTitle="Easily find your perfect gym club and join the club instantly."
             />
             <FeaturedCard
-              icon="progress.png"
+              icon="progress"
               title="Track your progress"
               subTitle="Analyze and plan for your tasks and progress."
             />
