@@ -20,7 +20,10 @@ const FeaturedCard: React.FC<Props> = ({ title, subTitle, icon }: Props) => {
       onMouseLeave={() => setCardHover(false)}
     >
       <Row>
-        <AnimatedAsset src={`/assets/images/${icon}.png`} scale={cardHover} />
+        <AnimatedAsset
+          src={`/assets/images/${icon}.png`}
+          scale={cardHover ? 'scale(1.2)' : 'scale(1)'}
+        />
         <Column>
           <Row justifyContent="space-between">
             <RichText bold>{title}</RichText>

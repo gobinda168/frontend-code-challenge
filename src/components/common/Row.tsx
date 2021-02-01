@@ -7,10 +7,7 @@ const Row = styled.div(
     justifyContent: props.justifyContent || 'flex-start',
     alignItems: 'center',
     div: {
-      margin: props.spacing || '0',
-    },
-    [`:hover ${AnimatedAsset}`]: {
-      transform: 'scale(1.2,1.2)',
+      margin: props.spacing,
     },
   })
 );

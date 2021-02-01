@@ -2,11 +2,15 @@
 import Downshift from 'downshift';
 import React from 'react';
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 import SVG from './SVG';
 
 const items: Array<string> = ['Male', 'Female', 'Other', "Don't Specify"];
-const DownshiftDropdown: React.FC = () => {
+interface Props {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  register: any;
+  name: string;
+}
+const DownshiftDropdown: React.FC<Props> = ({ register, name }: Props) => {
   return (
     <Wrapper>
       <Downshift>
@@ -25,6 +29,8 @@ const DownshiftDropdown: React.FC = () => {
               <Input
                 readOnly
                 placeholder="Please select"
+                ref={register()}
+                name={name}
                 {...getInputProps()}
               />
               <Button {...getToggleButtonProps()}>
@@ -67,7 +73,7 @@ const Dropdown = styled.div({
   height: '2.5rem',
   width: '20rem',
   borderRadius: '4px',
-  opacity: '0.42',
+  // opacity: '0.42',
   margin: '.5rem 1rem',
   background: 'white',
   position: 'relative',
@@ -83,11 +89,12 @@ const MenuContainer = styled.div({
 const Input = styled.input({
   height: '2.4rem',
   width: '20rem',
-  border: '1px solid #3C498A',
+  border: '1px solid rgba(60,73,138,0.42)',
   paddingLeft: '.7rem',
   marginLeft: '0',
   '::focus': {
     outline: 'none',
+    border: '1px solid rgba(60,73,138,0.92)',
   },
   '::placeholder': {
     opacity: '1',
@@ -110,7 +117,7 @@ const Menu = styled.ul({
   border: '1px solid white',
   borderRadius: '4px',
   margin: '0px',
-  marginTop: '.61rem',
+  marginTop: '.41rem',
   padding: '0px',
   position: 'absolute',
   // zIndex: 119,

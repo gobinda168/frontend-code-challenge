@@ -1,6 +1,8 @@
 import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import React, { useEffect, useState } from 'react';
+import Row from '../common/Row';
+import SVG from '../common/SVG';
 import RoundedContainer from '../roundedContainer/RoundedContainer';
 
 interface Props {
@@ -63,7 +65,7 @@ const Sidebar: React.FC = () => {
         </FooterTop>
         <FooterBottom>
           <Text>Jimmy Page</Text>
-          <Row spacing="1rem">
+          <Row spacing="1rem .3rem 0 0">
             <CircleIcon>
               <SVG src="/assets/images/call.svg" cursor="pointer" />
             </CircleIcon>
@@ -93,13 +95,6 @@ const Badge = styled.div({
   marginLeft: '1rem',
 });
 
-const Row = styled.div((props: { spacing?: string }) => ({
-  display: 'flex',
-  margin: '1rem 0',
-  div: {
-    marginRight: props.spacing,
-  },
-}));
 const CircleIcon = styled.div({
   width: '32px',
   height: '32px',
@@ -111,9 +106,7 @@ const CircleIcon = styled.div({
   opacity: '0.7',
   cursor: 'pointer',
 });
-const SVG = styled.img((props: { cursor?: string }) => ({
-  cursor: props.cursor || 'auto',
-}));
+
 const SidebarContainer = styled.div((props: Props) => ({
   minWidth: '223px',
   background:
