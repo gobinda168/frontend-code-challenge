@@ -1,6 +1,8 @@
 import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import React, { useEffect, useState } from 'react';
+import MobileRow from '../common/MobileRow';
+import MobileView from '../common/MobileView';
 import Row from '../common/Row';
 import SVG from '../common/SVG';
 import RoundedContainer from '../roundedContainer/RoundedContainer';
@@ -16,7 +18,14 @@ const initialMenuItems = [
   { id: '5', menuItem: 'Settings', selected: false, badge: false },
 ];
 
-const Sidebar: React.FC = () => {
+interface SidebarProps {
+  toggleSidebar: () => void;
+  showSidebar: boolean;
+}
+const Sidebar: React.FC<SidebarProps> = ({
+  toggleSidebar,
+  showSidebar,
+}: SidebarProps) => {
   const badgeValue = 2;
   const [menuItems, setMenuItems] = useState(initialMenuItems);
   const handleMenuSelect = (id: number) => {
@@ -33,7 +42,14 @@ const Sidebar: React.FC = () => {
     <SidebarContainer borderRadius="0 47px 0 0">
       <div>
         <Top>
-          <Avatar imageUrl="/assets/images/profile@2x.png" />
+          <MobileRow justifyContent="space-between">
+            <Avatar imageUrl="/assets/images/profile@2x.png" />
+            <MobileView>
+              <IconButton onClick={toggleSidebar}>
+                <SVG src="/assets/images/left.png" />
+              </IconButton>
+            </MobileView>
+          </MobileRow>
           <Text>Jimmy Hendrix</Text>
           <Text underline opacity="0.8" cursor="pointer">
             View Profile
@@ -65,7 +81,7 @@ const Sidebar: React.FC = () => {
         </FooterTop>
         <FooterBottom>
           <Text>Jimmy Page</Text>
-          <Row spacing="1rem .3rem 0 0">
+          <MobileRow spacing="1rem .3rem 0 0">
             <CircleIcon>
               <SVG src="/assets/images/call.svg" cursor="pointer" />
             </CircleIcon>
@@ -75,13 +91,23 @@ const Sidebar: React.FC = () => {
             <CircleIcon>
               <SVG src="/assets/images/chat.svg" cursor="pointer" />
             </CircleIcon>
-          </Row>
+          </MobileRow>
         </FooterBottom>
       </FooterContainer>
     </SidebarContainer>
   );
 };
 export default Sidebar;
+
+const IconButton = styled.button({
+  cursor: 'pointer',
+  backgroundColor: 'transparent',
+  border: 'none',
+  ':focus': {
+    border: 'none',
+    outline: 'none',
+  },
+});
 
 const Badge = styled.div({
   width: '32px',
@@ -117,7 +143,7 @@ const SidebarContainer = styled.div((props: Props) => ({
   justifyContent: 'space-between',
   padding: '2rem 0',
   '@media(max-width:500px)': {
-    display: 'none',
+    padding: '.51rem 0',
   },
 }));
 
@@ -179,6 +205,9 @@ const Text = styled.div(
 const Menu = styled.div({
   marginTop: '45px',
   fontFamily: 'Inter',
+  div: {
+    marginTop: '.1rem',
+  },
 });
 
 const MenuItem = styled.div((props: { selected: boolean }) => ({

@@ -7,6 +7,8 @@ import Input from '../common/Input';
 import RichText from '../common/RichText';
 import RoundedButton from '../common/RoundedButton';
 import Row from '../common/Row';
+import Spacer from '../common/Spacer';
+import WebView from '../common/WebView';
 
 type Inputs = {
   name: string;
@@ -64,11 +66,15 @@ const Form: React.FC = () => {
           name="address2"
         />
       </Row>
-      <Divider />
+      <WebView>
+        <Divider />
+      </WebView>
       <Row justifyContent="space-between" spacing="2rem 0">
-        <RichText color="#B7B7B7">
-          Lorem Ipsum dolor sit amet & Lorem Ipsum
-        </RichText>
+        <WebView>
+          <RichText color="#B7B7B7">
+            Lorem Ipsum dolor sit amet & Lorem Ipsum
+          </RichText>
+        </WebView>
         <RoundedButton
           background="#ECF4F9"
           color="#262758"

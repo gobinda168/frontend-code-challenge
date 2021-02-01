@@ -3,10 +3,13 @@ import React from 'react';
 import Card from '../common/Card';
 import Column from '../common/Column';
 import MobileRow from '../common/MobileRow';
+import MobileView from '../common/MobileView';
 import RichText from '../common/RichText';
 import RoundedButton from '../common/RoundedButton';
 import Row from '../common/Row';
+import Spacer from '../common/Spacer';
 import SVG from '../common/SVG';
+import WebView from '../common/WebView';
 import FeaturedCard from './FeaturedCard';
 import Form from './Form';
 import Heading from './Heading';
@@ -56,11 +59,19 @@ const packageDetails = [
     price: '$ 4,220/6 mo.',
   },
 ];
-const Body: React.FC = () => {
+interface Props {
+  toggleSidebar: () => void;
+}
+const Body: React.FC<Props> = ({ toggleSidebar }: Props) => {
   return (
     <BodyContainer>
       <BodyTopContainer>
         <Row justifyContent="space-between">
+          <MobileView>
+            <IconButton onClick={toggleSidebar}>
+              <SVG src="/assets/images/down.png" />
+            </IconButton>
+          </MobileView>
           <MobileRow spacing="1rem 0">
             <RichText color="#555555" size="1.5rem" bold>
               Hello&nbsp;
@@ -103,25 +114,29 @@ const Body: React.FC = () => {
           />
         ))}
 
-        <Column spacing="1rem 0 0 0">
-          <RichText size="1.2rem" bold color="#555555">
-            Refer and Earn
-          </RichText>
-          <RichText color="#858585">
-            Add your refferel and earn&nbsp;
-            <b>5$</b>
-            &nbsp;after they sign up.
-          </RichText>
-        </Column>
+        <Spacer margin="0 .6rem">
+          <Column spacing="1rem 0 0 0">
+            <RichText size="1.2rem" bold color="#555555">
+              Refer and Earn
+            </RichText>
+            <RichText color="#858585">
+              Add your refferel and earn&nbsp;
+              <b>5$</b>
+              &nbsp;after they sign up.
+            </RichText>
+          </Column>
 
-        <RichText spacing="2rem 0 .5rem 0" color="#555555">
-          Basic Information
-        </RichText>
+          <RichText spacing="2rem 0 .5rem 0" color="#555555">
+            Basic Information
+          </RichText>
+        </Spacer>
         <Row justifyContent="space-between">
           <Column>
             <Form />
           </Column>
-          <SVG src="/assets/images/illustration.png" />
+          <WebView>
+            <SVG src="/assets/images/illustration.png" />
+          </WebView>
         </Row>
       </BodyBottomContainer>
     </BodyContainer>
@@ -129,6 +144,16 @@ const Body: React.FC = () => {
 };
 
 export default Body;
+
+const IconButton = styled.button({
+  cursor: 'pointer',
+  backgroundColor: 'transparent',
+  border: 'none',
+  ':focus': {
+    border: 'none',
+    outline: 'none',
+  },
+});
 
 const AlignVerticle = styled.div({
   transform: 'translateY(-50%)',
@@ -153,7 +178,7 @@ const BodyTopContainer = styled.div({
   paddingBottom: '0',
   borderBottomRightRadius: '2rem',
   '@media(max-width:500px)': {
-    height: '45%',
+    height: '19rem',
     width: '100vw',
     padding: '0',
     marginBottom: '2rem',
@@ -163,7 +188,7 @@ const BodyTopContainer = styled.div({
 const BodyBottomContainer = styled.div({
   padding: '0 6rem',
   '@media(max-width:500px)': {
-    padding: '0',
+    padding: '0 1rem',
     marginTop: '2rem',
   },
 });

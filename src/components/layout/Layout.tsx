@@ -7,7 +7,6 @@ const Layout = styled.div({
   backgroundColor: '#f4f4f4',
   '@media(max-width:500px)': {
     gridTemplateColumns: '1fr',
-    padding: '0 .5rem',
   },
 });
 
