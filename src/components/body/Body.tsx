@@ -3,6 +3,7 @@ import React from 'react';
 import Card from '../common/Card';
 import CircularIcon from '../common/CircularIcon';
 import Column from '../common/Column';
+import DownshiftDropdown from '../common/DownshiftDropdown';
 import RichText from '../common/RichText';
 import RoundedButton from '../common/RoundedButton';
 import Row from '../common/Row';
@@ -94,7 +95,7 @@ const Body: React.FC = () => {
             </Row>
             <Row>
               <Input type="text" placeholder="Phone Number" />
-              <Input type="text" placeholder="Gender" />
+              <DownshiftDropdown />
             </Row>
             <Row>
               <Input type="text" placeholder="Address" />
@@ -134,6 +135,7 @@ const Input = styled.input({
   margin: '.5rem 1rem',
   paddingLeft: '.7rem',
   marginLeft: '0',
+  // zIndex: -1,
   '::placeholder': {
     opacity: '1',
     color: 'black',
