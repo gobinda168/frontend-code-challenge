@@ -1,14 +1,16 @@
-/* eslint-disable consistent-return */
-/* eslint-disable react/button-has-type */
 /* eslint-disable react/jsx-props-no-spreading */
 import Downshift from 'downshift';
 import React from 'react';
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 import SVG from './SVG';
 
 const items: Array<string> = ['Male', 'Female', 'Other', "Don't Specify"];
-const DownshiftDropdown: React.FC = () => {
+interface Props {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  register: any;
+  name: string;
+}
+const DownshiftDropdown: React.FC<Props> = ({ register, name }: Props) => {
   return (
     <Wrapper>
       <Downshift>
@@ -27,6 +29,8 @@ const DownshiftDropdown: React.FC = () => {
               <Input
                 readOnly
                 placeholder="Please select"
+                ref={register()}
+                name={name}
                 {...getInputProps()}
               />
               <Button {...getToggleButtonProps()}>
@@ -77,10 +81,7 @@ const Dropdown = styled.div({
 
 const MenuContainer = styled.div({
   height: '0rem',
-  width: '20rem',
-  borderRadius: '4px',
   opacity: '1',
-  margin: '.5rem 1rem',
   background: 'transparent',
   position: 'relative',
 });
@@ -115,7 +116,7 @@ const Menu = styled.ul({
   border: '1px solid white',
   borderRadius: '4px',
   margin: '0px',
-  marginTop: '.61rem',
+  marginTop: '.41rem',
   padding: '0px',
   position: 'absolute',
   // zIndex: 119,

@@ -1,17 +1,60 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import Card from '../common/Card';
-import CircularIcon from '../common/CircularIcon';
 import Column from '../common/Column';
-import DownshiftDropdown from '../common/DownshiftDropdown';
 import RichText from '../common/RichText';
 import RoundedButton from '../common/RoundedButton';
 import Row from '../common/Row';
 import SVG from '../common/SVG';
 import FeaturedCard from './FeaturedCard';
+import Form from './Form';
 import Heading from './Heading';
 import PackageDetailsCard from './PackageDetailsCard';
 
+const featuredCard = [
+  {
+    id: 1,
+    title: 'Fill up the form',
+    subTitle: 'Fill in your basic information to join the Gym Club.',
+    icon: 'form',
+  },
+  {
+    id: 2,
+    icon: 'find',
+    title: 'Find your perfect gym',
+    subTitle: 'Easily find your perfect gym club and join the club instantly.',
+  },
+  {
+    id: 3,
+    icon: 'progress',
+    title: 'Track your progress',
+    subTitle: 'Analyze and plan for your tasks and progress.',
+  },
+];
+
+const packageDetails = [
+  {
+    id: 1,
+    title: 'Pilates',
+    subTitle:
+      'Developed first by Joseph Pilates, after whom the technique is name…',
+    price: '$ 4,220/6 mo.',
+  },
+  {
+    id: 2,
+    title: 'Yoga & Meditation',
+    subTitle:
+      'Mantra has always believed in a Mind & Body approach which means…',
+    price: '$ 4,220/6 mo.',
+  },
+  {
+    id: 3,
+    title: 'Kettlebell',
+    subTitle:
+      'Kettlebell, the exercise routine involving a kettle shaped weight originat…',
+    price: '$ 4,220/6 mo.',
+  },
+];
 const Body: React.FC = () => {
   return (
     <BodyContainer>
@@ -36,43 +79,29 @@ const Body: React.FC = () => {
       <BodyBottomContainer>
         <AlignVerticle>
           <Row spacing="0 1rem">
-            <FeaturedCard
-              title="Fill up the form"
-              subTitle="Fill in your basic information to join the Gym Club."
-              icon="form"
-            />
-
-            <FeaturedCard
-              icon="find"
-              title="Find your perfect gym"
-              subTitle="Easily find your perfect gym club and join the club instantly."
-            />
-            <FeaturedCard
-              icon="progress"
-              title="Track your progress"
-              subTitle="Analyze and plan for your tasks and progress."
-            />
+            {featuredCard.map(({ id, title, subTitle, icon }) => (
+              <FeaturedCard
+                key={id}
+                title={title}
+                subTitle={subTitle}
+                icon={icon}
+              />
+            ))}
           </Row>
         </AlignVerticle>
         <Heading
           title="Recommended Tour Packages"
           subTitle="These recommendations are based on your profile information"
         />
-        <PackageDetailsCard
-          title="Pilates"
-          subTitle="Developed first by Joseph Pilates, after whom the technique is name…"
-          price="$ 4,220/6 mo."
-        />
-        <PackageDetailsCard
-          title="Yoga & Meditation"
-          subTitle="Mantra has always believed in a Mind & Body approach which means…"
-          price="$ 4,220/6 mo."
-        />
-        <PackageDetailsCard
-          title="Kettlebell"
-          subTitle="Kettlebell, the exercise routine involving a kettle shaped weight originat…"
-          price="$ 4,220/6 mo."
-        />
+        {packageDetails.map(({ id, title, subTitle, price }) => (
+          <PackageDetailsCard
+            key={id}
+            title={title}
+            subTitle={subTitle}
+            price={price}
+          />
+        ))}
+
         <Column spacing="1rem 0 0 0">
           <RichText size="1.2rem" bold color="#555555">
             Refer and Earn
@@ -89,27 +118,7 @@ const Body: React.FC = () => {
         </RichText>
         <Row justifyContent="space-between">
           <Column>
-            <Row>
-              <Input type="text" placeholder="Name" />
-              <Input type="text" placeholder="Email" />
-            </Row>
-            <Row>
-              <Input type="text" placeholder="Phone Number" />
-              <DownshiftDropdown />
-            </Row>
-            <Row>
-              <Input type="text" placeholder="Address" />
-              <Input type="text" placeholder="Apt/Suite/Other" />
-            </Row>
-            <Divider />
-            <Row justifyContent="space-between" spacing="2rem 0">
-              <RichText color="#B7B7B7">
-                Lorem Ipsum dolor sit amet & Lorem Ipsum
-              </RichText>
-              <RoundedButton background="#ECF4F9" color="#262758">
-                REFER
-              </RoundedButton>
-            </Row>
+            <Form />
           </Column>
           <SVG src="/assets/images/illustration.png" />
         </Row>
@@ -119,28 +128,6 @@ const Body: React.FC = () => {
 };
 
 export default Body;
-
-const Divider = styled.div({
-  borderBottom: '1px solid #9F9F9F',
-  paddingTop: '1rem',
-  width: '43rem',
-});
-
-const Input = styled.input({
-  height: '2.5rem',
-  width: '20rem',
-  border: '1px solid #3C498A',
-  borderRadius: '4px',
-  opacity: '0.42',
-  margin: '.5rem 1rem',
-  paddingLeft: '.7rem',
-  marginLeft: '0',
-  // zIndex: -1,
-  '::placeholder': {
-    opacity: '1',
-    color: 'black',
-  },
-});
 
 const AlignVerticle = styled.div({
   transform: 'translateY(-50%)',
