@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import styled from '@emotion/styled';
 import React, { useState } from 'react';
-import Row from './Row';
 import SVG from './SVG';
 
 interface Props {
@@ -36,13 +35,13 @@ const Input: React.FC<Props> = ({
         />
       </FlatInput>
       <FieldError>
-        <Row spacing="0 .41rem">
+        <MobileRow spacing="0 .41rem">
           {errors[name] && (
             <SVG src="/assets/images/warning.png" width="10px" height="10px" />
           )}
           {errors[name]?.message ||
             (errors[name] && `${fieldLabel} is required`)}
-        </Row>
+        </MobileRow>
       </FieldError>
     </div>
   );
@@ -50,6 +49,17 @@ const Input: React.FC<Props> = ({
 
 export default Input;
 
+const MobileRow = styled.div(
+  (props: { spacing?: string; justifyContent?: string; margin?: string }) => ({
+    display: 'flex',
+    justifyContent: props.justifyContent || 'flex-start',
+    alignItems: 'center',
+    fontSize: 'x-small',
+    div: {
+      margin: props.spacing,
+    },
+  })
+);
 const FieldError = styled.div({
   color: 'red',
 });
@@ -68,7 +78,7 @@ const FlatInput = styled.div((props: { active: boolean }) => ({
     padding: '0 .72rem',
     top: props.active ? '0' : '35%',
     '@media(max-width:500px)': {
-      top: props.active ? '0' : '20%',
+      top: props.active ? '-10px' : '17%',
       fontSize: '.71rem',
     },
   },
@@ -84,6 +94,11 @@ const FlatInput = styled.div((props: { active: boolean }) => ({
     ':focus': {
       outline: 'none',
       border: 'none',
+    },
+    '@media(max-width:500px)': {
+      left: '0',
+      width: '85vw',
+      paddingLeft: '1.2rem',
     },
   },
   '@media(max-width:500px)': {
