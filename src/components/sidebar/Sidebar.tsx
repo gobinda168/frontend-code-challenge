@@ -1,6 +1,7 @@
 import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import React, { useEffect, useState } from 'react';
+import pathUtil from '../../utils/assetsPath';
 import MobileRow from '../common/MobileRow';
 import MobileView from '../common/MobileView';
 import Row from '../common/Row';
@@ -38,6 +39,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     handleMenuSelect(0);
   }, []);
 
+  const { getImagePath } = pathUtil;
   return (
     <SidebarContainer borderRadius="0 47px 0 0">
       <div>
@@ -74,7 +76,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         <FooterTop>
           <Text>My Mentor</Text>
           <SVG
-            src="/assets/images/rightArrowSmall.png"
+            src={getImagePath('rightArrowSmall.png')}
             alt="arrowRight"
             cursor="pointer"
           />
@@ -83,13 +85,13 @@ const Sidebar: React.FC<SidebarProps> = ({
           <Text>Jimmy Page</Text>
           <MobileRow spacing="1rem .3rem 0 0">
             <CircleIcon>
-              <SVG src="/assets/images/call.svg" cursor="pointer" />
+              <SVG src={getImagePath('call.svg')} cursor="pointer" />
             </CircleIcon>
             <CircleIcon>
-              <SVG src="/assets/images/mail.svg" cursor="pointer" />
+              <SVG src={getImagePath('mail.svg')} cursor="pointer" />
             </CircleIcon>
             <CircleIcon>
-              <SVG src="/assets/images/chat.svg" cursor="pointer" />
+              <SVG src={getImagePath('chat.svg')} cursor="pointer" />
             </CircleIcon>
           </MobileRow>
         </FooterBottom>
