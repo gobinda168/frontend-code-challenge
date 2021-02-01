@@ -144,6 +144,7 @@ const SidebarContainer = styled.div((props: Props) => ({
   padding: '2rem 0',
   '@media(max-width:500px)': {
     padding: '.51rem 0',
+    height: '100vh',
   },
 }));
 
