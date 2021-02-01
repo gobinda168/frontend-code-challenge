@@ -131,12 +131,18 @@ export default Body;
 
 const AlignVerticle = styled.div({
   transform: 'translateY(-50%)',
+  '@media(max-width:500px)': {
+    transform: 'none',
+  },
 });
 
 const BodyContainer = styled.div({
   overflowY: 'scroll',
   backgroundColor: 'white',
   paddingBottom: '4rem',
+  '@media(max-width:500px)': {
+    paddingBottom: '1rem',
+  },
 });
 
 const BodyTopContainer = styled.div({
@@ -145,8 +151,18 @@ const BodyTopContainer = styled.div({
   padding: '4rem 6rem',
   paddingBottom: '0',
   borderBottomRightRadius: '2rem',
+  '@media(max-width:500px)': {
+    height: '45%',
+    width: '100vw',
+    padding: '0',
+    marginBottom: '2rem',
+  },
 });
 
 const BodyBottomContainer = styled.div({
   padding: '0 6rem',
+  '@media(max-width:500px)': {
+    padding: '0',
+    marginTop: '2rem',
+  },
 });

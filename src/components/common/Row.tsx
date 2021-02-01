@@ -9,6 +9,15 @@ const Row = styled.div(
     div: {
       margin: props.spacing,
     },
+    '@media(max-width:500px)': {
+      flexDirection: 'column',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      textAlign: 'center',
+      div: {
+        margin: '.41rem',
+      },
+    },
   })
 );
 

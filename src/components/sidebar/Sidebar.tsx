@@ -116,6 +116,9 @@ const SidebarContainer = styled.div((props: Props) => ({
   flexDirection: 'column',
   justifyContent: 'space-between',
   padding: '2rem 0',
+  '@media(max-width:500px)': {
+    display: 'none',
+  },
 }));
 
 const FooterContainer = styled.div({
