@@ -19,7 +19,8 @@ type Inputs = {
 
 const Form: React.FC = () => {
   const { register, handleSubmit, watch, errors } = useForm<Inputs>();
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: unknown) => {
+    // eslint-disable-next-line no-console
     console.log(data);
   };
 
