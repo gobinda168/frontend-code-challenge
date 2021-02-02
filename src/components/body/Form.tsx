@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import React, { FormEvent, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import Colors from '../../constants/colors';
 import Divider from '../common/Divider';
 import DownshiftDropdown from '../common/DownshiftDropdown';
 import Input from '../common/Input';
@@ -71,13 +72,13 @@ const Form: React.FC = () => {
       </WebView>
       <Row justifyContent="space-between" spacing="2rem 0">
         <WebView>
-          <RichText color="#B7B7B7">
+          <RichText color={Colors.silver}>
             Lorem Ipsum dolor sit amet & Lorem Ipsum
           </RichText>
         </WebView>
         <RoundedButton
-          background="#ECF4F9"
-          color="#262758"
+          background={Colors.aliceBlue}
+          color={Colors.midNightBlue}
           onClick={handleSubmit(onSubmit)}
         >
           REFER
@@ -88,43 +89,12 @@ const Form: React.FC = () => {
 };
 
 export default Form;
-// const Form: React.FC = () => {
-//   return (
-//     <form>
-//       <Row>
-//         {/* <Input type="text" placeholder="Name" /> */}
-//         <FlatInput>
-//           <div className="label">Name</div>
-//           <input type="text" className="input" />
-//         </FlatInput>
-//         <Input type="text" placeholder="Email" />
-//       </Row>
-//       <Row>
-//         <Input type="text" placeholder="Phone Number" />
-//         <DownshiftDropdown />
-//       </Row>
-//       <Row>
-//         <Input type="text" placeholder="Address" />
-//         <Input type="text" placeholder="Apt/Suite/Other" />
-//       </Row>
-//       <Divider />
-//       <Row justifyContent="space-between" spacing="2rem 0">
-//         <RichText color="#B7B7B7">
-//           Lorem Ipsum dolor sit amet & Lorem Ipsum
-//         </RichText>
-//         <RoundedButton background="#ECF4F9" color="#262758">
-//           REFER
-//         </RoundedButton>
-//       </Row>
-//     </form>
-//   );
-// };
 
 const FlatInput = styled.div((props: { active: boolean }) => ({
   height: '2.5rem',
   width: '20rem',
   border: '1px solid',
-  borderColor: !props.active ? 'rgba(60,73,138,0.42)' : '#3C498A',
+  borderColor: !props.active ? 'rgba(60,73,138,0.42)' : Colors.darkSlateBlue,
   borderRadius: '4px',
   position: 'relative',
   '.label': {
@@ -147,21 +117,3 @@ const FlatInput = styled.div((props: { active: boolean }) => ({
     },
   },
 }));
-
-// const Input = styled.input({
-//   height: '2.5rem',
-//   width: '20rem',
-//   border: '1px solid rgba(60,73,138,0.42)',
-//   borderRadius: '4px',
-//   margin: '.5rem 1rem',
-//   paddingLeft: '.7rem',
-//   marginLeft: '0',
-//   ':focus': {
-//     outline: 'none',
-//     border: '1px solid rgba(60, 73, 138, 0.92)',
-//   },
-//   '::placeholder': {
-//     opacity: '1',
-//     color: 'black',
-//   },
-// });

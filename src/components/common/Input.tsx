@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import styled from '@emotion/styled';
 import React, { useState } from 'react';
+import Colors from '../../constants/colors';
 import SVG from './SVG';
 
 interface Props {
@@ -68,7 +69,7 @@ const FlatInput = styled.div((props: { active: boolean }) => ({
   height: '2.5rem',
   width: '21rem',
   border: '1px solid',
-  borderColor: !props.active ? 'rgba(60,73,138,0.42)' : '#3C498A',
+  borderColor: !props.active ? 'rgba(60,73,138,0.42)' : Colors.darkSlateBlue,
   borderRadius: '4px',
   position: 'relative',
   margin: '.1rem',

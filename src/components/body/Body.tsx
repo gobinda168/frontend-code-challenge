@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import Card from '../common/Card';
+import Colors from '../../constants/colors';
+import sampleData from '../../constants/data';
+import pathUtil from '../../utils/assetsPath';
 import Column from '../common/Column';
 import MobileRow from '../common/MobileRow';
 import MobileView from '../common/MobileView';
@@ -15,50 +17,6 @@ import Form from './Form';
 import Heading from './Heading';
 import PackageDetailsCard from './PackageDetailsCard';
 
-const featuredCard = [
-  {
-    id: 1,
-    title: 'Fill up the form',
-    subTitle: 'Fill in your basic information to join the Gym Club.',
-    icon: 'form',
-  },
-  {
-    id: 2,
-    icon: 'find',
-    title: 'Find your perfect gym',
-    subTitle: 'Easily find your perfect gym club and join the club instantly.',
-  },
-  {
-    id: 3,
-    icon: 'progress',
-    title: 'Track your progress',
-    subTitle: 'Analyze and plan for your tasks and progress.',
-  },
-];
-
-const packageDetails = [
-  {
-    id: 1,
-    title: 'Pilates',
-    subTitle:
-      'Developed first by Joseph Pilates, after whom the technique is name…',
-    price: '$ 4,220/6 mo.',
-  },
-  {
-    id: 2,
-    title: 'Yoga & Meditation',
-    subTitle:
-      'Mantra has always believed in a Mind & Body approach which means…',
-    price: '$ 4,220/6 mo.',
-  },
-  {
-    id: 3,
-    title: 'Kettlebell',
-    subTitle:
-      'Kettlebell, the exercise routine involving a kettle shaped weight originat…',
-    price: '$ 4,220/6 mo.',
-  },
-];
 interface Props {
   toggleSidebar: () => void;
 }
@@ -69,21 +27,21 @@ const Body: React.FC<Props> = ({ toggleSidebar }: Props) => {
         <Row justifyContent="space-between">
           <MobileView>
             <IconButton onClick={toggleSidebar}>
-              <SVG src="/assets/images/down.png" />
+              <SVG src={pathUtil.getImagePath('down.png')} />
             </IconButton>
           </MobileView>
           <MobileRow spacing="1rem 0">
-            <RichText color="#555555" size="1.5rem" bold>
+            <RichText color={Colors.darkGrey} size="1.5rem" bold>
               Hello&nbsp;
             </RichText>
-            <RichText color="#3D3FA8" size="1.5rem" bold>
+            <RichText color={Colors.darkSlateBlue} size="1.5rem" bold>
               Jimmy,
             </RichText>
           </MobileRow>
           <RoundedButton>Find a Gym Club</RoundedButton>
         </Row>
         <Row spacing="1rem 0">
-          <RichText color="#2C2C2C" size="2rem">
+          <RichText color={Colors.darkestGrey} size="2rem">
             What do you want to do today?
           </RichText>
         </Row>
@@ -91,7 +49,7 @@ const Body: React.FC<Props> = ({ toggleSidebar }: Props) => {
       <BodyBottomContainer>
         <AlignVerticle>
           <Row spacing="0 1rem">
-            {featuredCard.map(({ id, title, subTitle, icon }) => (
+            {sampleData.featuredCard.map(({ id, title, subTitle, icon }) => (
               <FeaturedCard
                 key={id}
                 title={title}
@@ -105,7 +63,7 @@ const Body: React.FC<Props> = ({ toggleSidebar }: Props) => {
           title="Recommended Tour Packages"
           subTitle="These recommendations are based on your profile information"
         />
-        {packageDetails.map(({ id, title, subTitle, price }) => (
+        {sampleData.packageDetails.map(({ id, title, subTitle, price }) => (
           <PackageDetailsCard
             key={id}
             title={title}
@@ -116,17 +74,17 @@ const Body: React.FC<Props> = ({ toggleSidebar }: Props) => {
 
         <Spacer margin="0 .6rem">
           <Column spacing="1rem 0 0 0">
-            <RichText size="1.2rem" bold color="#555555">
+            <RichText size="1.2rem" bold color={Colors.darkGrey}>
               Refer and Earn
             </RichText>
-            <RichText color="#858585">
+            <RichText color={Colors.grey}>
               Add your refferel and earn&nbsp;
               <b>5$</b>
               &nbsp;after they sign up.
             </RichText>
           </Column>
 
-          <RichText spacing="2rem 0 .5rem 0" color="#555555">
+          <RichText spacing="2rem 0 .5rem 0" color={Colors.darkGrey}>
             Basic Information
           </RichText>
         </Spacer>
@@ -135,7 +93,7 @@ const Body: React.FC<Props> = ({ toggleSidebar }: Props) => {
             <Form />
           </Column>
           <WebView>
-            <SVG src="/assets/images/illustration.png" />
+            <SVG src={pathUtil.getImagePath('illustration.png')} />
           </WebView>
         </Row>
       </BodyBottomContainer>
