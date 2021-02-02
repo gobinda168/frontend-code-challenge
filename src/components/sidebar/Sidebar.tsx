@@ -1,12 +1,10 @@
-import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import React, { useEffect, useState } from 'react';
+import Colors from '../../constants/colors';
 import pathUtil from '../../utils/assetsPath';
 import MobileRow from '../common/MobileRow';
 import MobileView from '../common/MobileView';
-import Row from '../common/Row';
 import SVG from '../common/SVG';
-import RoundedContainer from '../roundedContainer/RoundedContainer';
 
 interface Props {
   borderRadius: string;
@@ -45,10 +43,10 @@ const Sidebar: React.FC<SidebarProps> = ({
       <div>
         <Top>
           <MobileRow justifyContent="space-between">
-            <Avatar imageUrl="/assets/images/profile@2x.png" />
+            <Avatar imageUrl={pathUtil.getImagePath(`profile@2x.png`)} />
             <MobileView>
               <IconButton onClick={toggleSidebar}>
-                <SVG src="/assets/images/left.png" />
+                <SVG src={pathUtil.getImagePath(`left.png`)} />
               </IconButton>
             </MobileView>
           </MobileRow>
@@ -114,7 +112,7 @@ const IconButton = styled.button({
 const Badge = styled.div({
   width: '32px',
   height: '17px',
-  background: '#FFC933 0% 0% no-repeat padding-box',
+  backgroundColor: Colors.gold,
   borderRadius: '9px',
   display: 'flex',
   justifyContent: 'center',
@@ -127,7 +125,7 @@ const CircleIcon = styled.div({
   width: '32px',
   height: '32px',
   borderRadius: '50%',
-  background: '#4446BE',
+  background: Colors.slateBlue,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -135,10 +133,11 @@ const CircleIcon = styled.div({
   cursor: 'pointer',
 });
 
+const sidebarGradient =
+  'transparent linear-gradient(345deg, #262758 0%, #4042B1 100%) 0% 0% no-repeat padding-box';
 const SidebarContainer = styled.div((props: Props) => ({
   minWidth: '223px',
-  background:
-    'transparent linear-gradient(345deg, #262758 0%, #4042B1 100%) 0% 0% no-repeat padding-box',
+  background: sidebarGradient,
   borderRadius: props.borderRadius,
   display: 'flex',
   flexDirection: 'column',
