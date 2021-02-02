@@ -28,7 +28,7 @@ const FeaturedCard: React.FC<Props> = ({ title, subTitle, icon }: Props) => {
           scale={cardHover ? 'scale(1.2)' : 'scale(1)'}
         />
         <Column>
-          <MobileRow justifyContent="space-between">
+          <MobileRow justifyContent="space-between" mJustifyContent="center">
             <RichText bold>{title}</RichText>
             <SVG
               src={pathUtil.getImagePath('arrowRightBlack.png')}

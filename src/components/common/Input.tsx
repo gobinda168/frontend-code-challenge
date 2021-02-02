@@ -17,8 +17,6 @@ const Input: React.FC<Props> = ({
   name,
 }: Props) => {
   const [fieldStatus, setFieldStatus] = useState(false);
-  // eslint-disable-next-line no-console
-  console.log(errors[name]); // watch input value by passing the name of it
   const toggleFieldStatus = (e: React.FocusEvent<HTMLInputElement>) => {
     if (e.target.value) return;
     setFieldStatus(false);
@@ -47,8 +45,6 @@ const Input: React.FC<Props> = ({
     </div>
   );
 };
-
-export default Input;
 
 const MobileRow = styled.div(
   (props: { spacing?: string; justifyContent?: string; margin?: string }) => ({
@@ -106,3 +102,5 @@ const FlatInput = styled.div((props: { active: boolean }) => ({
     width: '85vw',
   },
 }));
+
+export default Input;

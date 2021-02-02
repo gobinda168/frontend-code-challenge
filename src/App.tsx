@@ -14,9 +14,7 @@ const App: React.FC = () => {
 
   return (
     <Layout>
-      {showSidebar && (
-        <Sidebar toggleSidebar={toggleSidebar} showSidebar={showSidebar} />
-      )}
+      {showSidebar && <Sidebar toggleSidebar={toggleSidebar} />}
       <Body toggleSidebar={toggleSidebar} />
     </Layout>
   );
