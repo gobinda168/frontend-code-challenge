@@ -19,12 +19,8 @@ const initialMenuItems = [
 
 interface SidebarProps {
   toggleSidebar: () => void;
-  showSidebar: boolean;
 }
-const Sidebar: React.FC<SidebarProps> = ({
-  toggleSidebar,
-  showSidebar,
-}: SidebarProps) => {
+const Sidebar: React.FC<SidebarProps> = ({ toggleSidebar }: SidebarProps) => {
   const badgeValue = 2;
   const [menuItems, setMenuItems] = useState(initialMenuItems);
   const handleMenuSelect = (id: number) => {
